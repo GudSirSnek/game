@@ -26,7 +26,7 @@ void Game::init(const char *title, int width, int height){
         pe_printFatalError("Failed to Initialize SDL_img: %s", IMG_GetError());
     }
 
-    pe_printInfo("successfully initialized Photonica Engine", NULL);
+    pe_printInfo("successfully initialized Engine", NULL);
 
     Game::createWindow(title, width, height);
     Game::createRenderer();
@@ -103,5 +103,5 @@ void Game::clean(void){
     SDL_Quit();
     pe_printNeutral("SDL uninitialized",NULL);
 
-    pe_printInfo("Photonica Engine successfully uninitialized",NULL);
+    pe_printInfo("Engine successfully uninitialized",NULL);
 }
