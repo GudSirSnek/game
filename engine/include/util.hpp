@@ -37,6 +37,7 @@
 void pe_printTime();
 
 #define pe_printNeutral(msg, ...) \
+        pe_printTime(); \
         printf(msg, __VA_ARGS__); \
         printf("\n");
 

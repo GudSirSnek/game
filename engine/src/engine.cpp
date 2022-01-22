@@ -1,4 +1,4 @@
-#include <engine.h>
+#include "engine.hpp"
 #include <stdio.h>
 
 int last_frame_time = 0;
@@ -93,7 +93,7 @@ bool Game::isRunning(){
 }
 
 void Game::clean(void){
-    pe_printNeutral("uniniting renderer, window, SDL", NULL);
+    pe_printNeutral("closing renderer, window, SDL", NULL);
     SDL_DestroyRenderer(Game::renderer);
     pe_printNeutral("renderer uninitialized",NULL);
     SDL_DestroyWindow(Game::window);

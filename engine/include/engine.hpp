@@ -2,9 +2,8 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
-#include "util.h"
-#include "maths.h"
-#include <string>
+#include "util.hpp"
+#include "maths.hpp"
 
 #define WINDOW_WIDTH 800
 #define WINDOW_HEIGHT 600
@@ -36,7 +35,6 @@ class Game
         void update();
 
         void render();
-
 
         bool isRunning();
 
