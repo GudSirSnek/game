@@ -8,7 +8,7 @@
 			"args": [
 				"-g",
 				"src/*.cpp",
-				//"engine/src/*.cpp",
+				"engine/src/*.cpp",
 				"-o",
 				"build/game.exe",
 				"-Iengine/include",
