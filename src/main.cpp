@@ -24,7 +24,7 @@ void rotate(pe_vec2 &a, float theta){
 }
 
 
-void pe_drawCircle(SDL_Renderer* renderer, int centerX, int centerY, int radius){
+void pe_drawCircle(SDL_Renderer* renderer, int centerX, int centerY, int radius, int scalex, int scaley){
        const int diameter = (radius * 2);
 
        int x = (radius - 1);
@@ -37,14 +37,14 @@ void pe_drawCircle(SDL_Renderer* renderer, int centerX, int centerY, int radius)
 	
 	  //SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 	  /*  Each of the following renders an octant of the circle */
-	  SDL_RenderDrawPoint(renderer, centerX + x, centerY - y);
-	  SDL_RenderDrawPoint(renderer, centerX + x, centerY + y);
-	  SDL_RenderDrawPoint(renderer, centerX - x, centerY - y);
-	  SDL_RenderDrawPoint(renderer, centerX - x, centerY + y);
-	  SDL_RenderDrawPoint(renderer, centerX + y, centerY - x);
-	  SDL_RenderDrawPoint(renderer,centerX + y, centerY + x);
-	  SDL_RenderDrawPoint(renderer, centerX - y, centerY - x);
-	  SDL_RenderDrawPoint(renderer, centerX - y, centerY + x);
+	  SDL_RenderDrawPoint(renderer, scalex*(centerX + x), scaley*(centerY - y));
+	  SDL_RenderDrawPoint(renderer, scalex*(centerX + x), scaley*(centerY + y));
+	  SDL_RenderDrawPoint(renderer, scalex*(centerX - x), scaley*(centerY - y));
+	  SDL_RenderDrawPoint(renderer, scalex*(centerX - x), scaley*(centerY + y));
+	  SDL_RenderDrawPoint(renderer, scalex*(centerX + y), scaley*(centerY - x));
+	  SDL_RenderDrawPoint(renderer, scalex*(centerX + y), scaley*(centerY + x));
+	  SDL_RenderDrawPoint(renderer, scalex*(centerX - y), scaley*(centerY - x));
+	  SDL_RenderDrawPoint(renderer, scalex*(centerX - y), scaley*(centerY + x));
 
 	  if (error <= 0) {
 	     ++y;
@@ -91,7 +91,7 @@ int main(int argc, char* args[]) {
     c2.radius = 20;
     c2.position.x = 240;
     c2.position.y = 440;
-    game->init("game", 480, 480);
+    game->init("game", 480, 480, 1, 2);
     while(game->isRunning()){
         //poll events
         game->handleEvents();
@@ -116,8 +116,8 @@ int main(int argc, char* args[]) {
         }
 
 
-        pe_drawCircle(game->renderer, c1.position.x, c1.position.y, 20);
-        pe_drawCircle(game->renderer, c2.position.x, c2.position.y, 20);
+        pe_drawCircle(game->renderer, c1.position.x, c1.position.y, 20, game->getScalex(), game->getScaley());
+        pe_drawCircle(game->renderer, c2.position.x, c2.position.y, 20, game->getScalex(), game->getScaley());
         
 
         SDL_RenderPresent(game->renderer);

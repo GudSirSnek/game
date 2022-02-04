@@ -19,6 +19,10 @@ class Game
 {
     SDL_Window* window;
     bool running;
+    int screenwidth;
+    int screenheight;
+    int widthscale;
+    int heightscale;
 
     public:
         SDL_Renderer* renderer;
@@ -26,10 +30,13 @@ class Game
 
         Game();
 
-        void init(const char *title, int width, int height);
+        void init(const char *title, int width, int height, int scalex, int scaley);
 
         SDL_Window* createWindow(const char *title, int width, int height);
         SDL_Renderer* createRenderer(void);
+
+        int getScalex();
+        int getScaley();
 
         void handleEvents();
         void update();

@@ -19,6 +19,10 @@ typedef struct{
 
 float PE_Distance(const pe_vec2 a, const pe_vec2 b);
 
+pe_vec2 vectorDifference(const pe_vec2 a, const pe_vec2 b);
+
+float dotproduct(const pe_vec2 a, const pe_vec2 b);
+
 float CrossProduct(const pe_vec2 a, const pe_vec2 b);
 
 pe_vec2 CrossProduct(const pe_vec2 a, float s);

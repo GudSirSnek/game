@@ -10,13 +10,17 @@ Game::Game(){
     Game::window =nullptr;
     Game::renderer = nullptr;
     Game::running = false;
+    Game::screenwidth = 0;
+    Game::screenheight = 0;
+    Game::widthscale = 0;
+    Game::heightscale = 0;
 }
 
 Game::~Game(){
 
 }
 
-void Game::init(const char *title, int width, int height){
+void Game::init(const char *title, int width, int height, int scalex, int scaley){
 
 
     if (SDL_Init(SDL_INIT_EVERYTHING) != 0){
@@ -28,7 +32,14 @@ void Game::init(const char *title, int width, int height){
 
     pe_printInfo("successfully initialized Engine", NULL);
 
-    Game::createWindow(title, width, height);
+    Game::widthscale = scalex;
+    Game::heightscale = scaley;
+
+    Game::createWindow(title, width*scalex, height*scaley);
+    Game::screenwidth = width;
+    Game::screenheight = height;
+    
+
     Game::createRenderer();
 
     Game::running = true;
@@ -40,6 +51,7 @@ SDL_Window* Game::createWindow(const char *title, int width, int height){
         pe_printFatalError("ERROR INITIALIZING WINDOW.", SDL_GetError());
         return NULL;
     }
+
     return window;
 }
 
@@ -51,6 +63,15 @@ SDL_Renderer* Game::createRenderer(void){
     }
 
     return renderer;
+}
+
+
+int Game::getScalex(){
+    return widthscale;
+}
+
+int Game::getScaley(){
+    return heightscale;
 }
 
 void Game::handleEvents(){
