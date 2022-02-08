@@ -98,7 +98,7 @@ void Game::update(void) {
 
     // Store the milliseconds of the current frame
     last_frame_time = SDL_GetTicks();
-    //printf("\n");
+    //printf("łn");
 }
 
 void Game::render(){

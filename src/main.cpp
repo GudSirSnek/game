@@ -69,7 +69,7 @@ int main(int argc, char* args[]) {
 
     
     setup();
-
+    /*
     AABB a1;
     a1.min.x = 200;
     a1.min.y = 200;
@@ -91,23 +91,30 @@ int main(int argc, char* args[]) {
     c2.radius = 20;
     c2.position.x = 240;
     c2.position.y = 440;
-    game->init("game", 480, 480, 1, 2);
+    */
+
+    game->init("game", 480, 480, 1, 1);
     while(game->isRunning()){
+
         //poll events
         game->handleEvents();
         //update
         game->update();
-
+        /*
         c1.position.y += 1; 
         c2.position.y -= 1;
 
-        
+        */
+
+
 
 
        
         
         SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
         SDL_RenderClear(game->renderer);
+
+        /*
         if (CirclevsCircle(c1, c2)){
             SDL_SetRenderDrawColor(game->renderer, 255, 0, 0, 255);
         }
@@ -119,7 +126,7 @@ int main(int argc, char* args[]) {
         pe_drawCircle(game->renderer, c1.position.x, c1.position.y, 20, game->getScalex(), game->getScaley());
         pe_drawCircle(game->renderer, c2.position.x, c2.position.y, 20, game->getScalex(), game->getScaley());
         
-
+        */
         SDL_RenderPresent(game->renderer);
         
         
