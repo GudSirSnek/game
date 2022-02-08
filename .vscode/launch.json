@@ -6,7 +6,7 @@
     "configurations": [
         
         {
-            "name": "g++.exe - Build and debug active file",
+            "name": "windows build debug",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}\\build\\game.exe",
@@ -24,7 +24,7 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "C/C++: g++.exe build active file"
+            "preLaunchTask": "windows build"
         }
     ]
 }
